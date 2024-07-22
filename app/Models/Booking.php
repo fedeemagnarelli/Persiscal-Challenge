@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Enums\BookingStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
     use HasFactory;
+
+    protected $stats = [
+        'status' => BookingStatusEnum::class,
+    ];
 
     protected $fillable = [
         'tour_id',
