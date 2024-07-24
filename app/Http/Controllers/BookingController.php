@@ -11,9 +11,7 @@ use App\Models\Booking;
 use App\Models\Hotel;
 use App\Models\Tour;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
 
 class BookingController extends Controller
 {
@@ -31,13 +29,11 @@ class BookingController extends Controller
 
         if($request->has('hotel_name')) {
             $id_hotel = Hotel::where('name', 'like', '%' . $request->hotel_name . '%')->pluck('id');
-            //Log::info('Hotel IDs: ', $id_hotel->toArray());
             $query->whereIn('id', $id_hotel);
         }
 
         if($request->has('tour_name')) {
             $id_tour = Tour::where('name', 'like', '%'.$request->tour_name.'%')->pluck('id');
-            //Log::info('Tour IDs: ', $id_tour->toArray());
             $query->whereIn('id', $id_tour);
         }
 

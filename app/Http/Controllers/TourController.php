@@ -27,7 +27,6 @@ class TourController extends Controller
             $query->where('end_date', '<=', $request->end_date);
         }
 
-        //Cambio get por paginate para la paginacion
         return response()->json($query->paginate(20), 200);
     }
 

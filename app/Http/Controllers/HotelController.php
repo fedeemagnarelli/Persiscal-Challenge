@@ -27,7 +27,6 @@ class HotelController extends Controller
             $query->where('price_per_night', '<=', $request->max_price);
         }
 
-        //Cambio get por paginate para la paginacion
         return response()->json($query->paginate(20), 200);
     }
 

@@ -44,8 +44,6 @@ class BookingCreated extends Mailable
         );
     }
 
-    //Generamos la creacion el mail de confirmacion de reserva
-
     public function build() {
         return $this->markdown('emails.bookings')
                     ->with([
